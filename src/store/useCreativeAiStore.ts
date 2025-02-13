@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { OutlineCard, Slide } from "@/lib/types";
+import { OutlineCard } from "@/lib/types";
 
 type CreativeAiStore = {
   outlines: OutlineCard[] | [];
@@ -8,6 +8,7 @@ type CreativeAiStore = {
   addOutline: (outline: OutlineCard) => void;
   currentAiPrompt: string;
   setCurrentAiPrompt(prompt: string): void;
+  resetOutlines: () => void;
 };
 
 export const useCreativeAiStore = create(
@@ -24,6 +25,7 @@ export const useCreativeAiStore = create(
       setCurrentAiPrompt: (prompt: string) => {
         set({ currentAiPrompt: prompt });
       },
+      resetOutlines: () => set({ outlines: [] }),
     }),
     { name: "creative-ai" },
   ),

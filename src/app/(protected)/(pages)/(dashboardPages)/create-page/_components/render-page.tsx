@@ -5,10 +5,16 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import usePromptStore from "@/store/usePromptStore";
 import CreatePage from "@/app/(protected)/(pages)/(dashboardPages)/create-page/_components/create-page";
+import CreativeAi from "@/app/(protected)/(pages)/(dashboardPages)/create-page/_components/generate-ai/creative-ai";
+import ScratchPage from "@/app/(protected)/(pages)/(dashboardPages)/create-page/_components/scratch-page";
 
 const RenderPage = () => {
   const router = useRouter();
   const { page, setPage } = usePromptStore();
+
+  const handleBack = () => {
+    setPage("create");
+  };
 
   const handleSelectOption = (option: string) => {
     if (option === "template") {
@@ -24,10 +30,10 @@ const RenderPage = () => {
     switch (page) {
       case "create":
         return <CreatePage onSelectOption={handleSelectOption} />;
-      case "create-scratch":
-        return <></>;
       case "creative-ai":
-        return <></>;
+        return <CreativeAi onBack={handleBack} />;
+      case "create-scratch":
+        return <ScratchPage onBack={handleBack} />;
       default:
         return null;
     }

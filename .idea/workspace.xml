@@ -8,9 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/projects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(protected)/(pages)/(dashboardPages)/create-page/_components/create-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(protected)/(pages)/(dashboardPages)/create-page/_components/create-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(protected)/(pages)/(dashboardPages)/create-page/_components/render-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(protected)/(pages)/(dashboardPages)/create-page/_components/render-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/useCreativeAiStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/useCreativeAiStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/useSlideStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/useSlideStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hoangtrung1002&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hoangtrung1002/vivid.git&quot;,
+    &quot;accountId&quot;: &quot;fd87e1e4-b890-48e1-a298-a93168901c1b&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -38,7 +52,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/Archive&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -54,6 +68,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\NextJs\vivid\src\app\(protected)\(pages)\(dashboardPages)\create-page\_components" />
       <recent name="E:\NextJs\vivid\src\app" />
       <recent name="E:\NextJs\vivid\public" />
       <recent name="E:\NextJs\vivid" />
@@ -79,6 +94,12 @@
       <workItem from="1738993998914" duration="6012000" />
       <workItem from="1739040115776" duration="2259000" />
       <workItem from="1739081934580" duration="8022000" />
+      <workItem from="1739200466995" duration="11738000" />
+      <workItem from="1739283334713" duration="1803000" />
+      <workItem from="1739374661369" duration="754000" />
+      <workItem from="1739379474065" duration="6259000" />
+      <workItem from="1739435496357" duration="524000" />
+      <workItem from="1739455107088" duration="5193000" />
     </task>
     <servers />
   </component>
