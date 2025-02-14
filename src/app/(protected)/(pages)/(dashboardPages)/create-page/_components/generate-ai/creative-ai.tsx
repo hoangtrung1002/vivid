@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -24,6 +24,10 @@ import usePromptStore from "@/store/usePromptStore";
 import RecentPrompts from "@/app/(protected)/(pages)/(dashboardPages)/create-page/_components/generate-ai/recent-prompts";
 import { toast } from "sonner";
 import { generateCreativePrompt } from "@/actions/openai";
+import { OutlineCard } from "@/lib/types";
+import { v4 as uuid } from "uuid";
+import { createProject } from "@/actions/projects";
+import { useSlideStore } from "@/store/useSlideStore";
 
 interface Props {
   onBack: () => void;
@@ -31,6 +35,7 @@ interface Props {
 
 const CreativeAi = ({ onBack }: Props) => {
   const router = useRouter();
+  const { setProject } = useSlideStore();
   const {
     currentAiPrompt,
     setCurrentAiPrompt,
@@ -65,8 +70,82 @@ const CreativeAi = ({ onBack }: Props) => {
     }
     setIsGenerating(true);
     const res = await generateCreativePrompt(currentAiPrompt);
+    if (res.status === 200 && res?.data?.outline) {
+      const cardsData: OutlineCard[] = [];
+      res.data?.outlines.map((outline: string, index: number) => {
+        const newCard = {
+          id: uuid(),
+          title: outline,
+          order: index + 1,
+        };
+        cardsData.push(newCard);
+      });
+      addMultipleOutlines(cardsData);
+      setNoOfCards(cardsData.length);
+      toast.success("Success", {
+        description: "Outline generated successfully",
+        style: toastCustomStyles.success,
+      });
+    } else {
+      toast.error("Error", {
+        description: "Failed to generated outline. Please try again.",
+        style: toastCustomStyles.error,
+      });
+    }
+    setIsGenerating(false);
   };
-  const handleGenerate = () => {};
+  const handleGenerate = async () => {
+    setIsGenerating(true);
+    if (outlines.length === 0) {
+      toast.error("Error", {
+        description: "Please add at least one card to generate slides",
+        style: toastCustomStyles.error,
+      });
+      return;
+    }
+    try {
+      const res = await createProject(
+        currentAiPrompt,
+        outlines.slice(0, noOfCards),
+      );
+
+      if (res.status !== 200 || !res.data) {
+        toast.error("Error", {
+          description: "Unable to create project",
+          style: toastCustomStyles.error,
+        });
+        return;
+      }
+      router.push(`presentations/${res.data.id}/select-theme`);
+      setProject(res.data);
+
+      addPrompt({
+        id: uuid(),
+        title: currentAiPrompt || outlines?.[0]?.title,
+        outlines: outlines,
+        createdAt: new Date().toISOString(),
+      });
+
+      toast.success("Success", {
+        description: "Project created successfully",
+        style: toastCustomStyles.success,
+      });
+      setCurrentAiPrompt("");
+      resetOutlines();
+    } catch (error) {
+      console.log(error);
+      toast.error("Error", {
+        description: "Failed to create project",
+        style: toastCustomStyles.error,
+      });
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  useEffect(() => {
+    setNoOfCards(outlines.length);
+  }, [outlines.length]);
 
   return (
     <motion.div
